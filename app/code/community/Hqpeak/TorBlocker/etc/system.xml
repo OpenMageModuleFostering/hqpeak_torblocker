@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<tabs>
+		<torblocker translate="label" module="hqpeaktorblocker">
+			<label>HQPeak Extensions</label>
+			<sort_order>1300</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_web>1</show_in_web>
+			<show_in_store>1</show_in_store>
+		</torblocker>
+	</tabs>
+	<sections>
+		<settings translate="label" module="hqpeaktorblocker">
+			<label>Tor Blocker</label>
+			<tab>torblocker</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>10</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_web>1</show_in_web>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<info translate="label">
+					<label>Tor Blocker - Information</label>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<information>
+							<frontend_model>hqpeaktorblocker/adminhtml_information</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_ins_store>1</show_ins_store>
+						</information>
+					</fields>
+				</info>
+				<main translate="label">
+					<label>Tor Blocker - General Configuration</label>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<url translate="label comment">
+                            <label>Default Tor Blocker List</label>
+                            <comment><![CDATA[Default is free version of the tor exit list service. <a href="http://hqpeak.com/torexitlist/" target="_blank">Learn more</a> or get <a href="http://hqpeak.com/torexitlist/account/" target="_blank">premium service</a> access]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-url</validate>
+                            <backend_model>hqpeaktorblocker/validation_urlValidate</backend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                       	</url>
+                       	<timeupdate translate="label comment">
+                       		<label>Time interval to update the table with Tor users</label>
+                       		<comment>Enter the time in seconds [Recommended: default version - one hour or more (in seconds); paid version - five minutes or more (in seconds)]</comment>
+                       		<frontend_type>text</frontend_type>
+                       		<validate>validate-number</validate>
+                       		 <backend_model>hqpeaktorblocker/validation_timeValidate</backend_model>
+                       		<sort_order>20</sort_order>
+                       		<show_in_default>1</show_in_default>
+                       		<show_in_website>1</show_in_website>
+                       		<show_in_store>1</show_in_store>
+                       	</timeupdate>
+                       	<errortemplate translate="label comment">
+                       		<label>Template for the error page shown to Tor users</label>
+                       		<comment>Define the template by using appropriate HTML syntax and structure</comment>
+                       		<frontend_type>textarea</frontend_type>
+                       		<sort_order>30</sort_order>
+                       		<show_in_default>1</show_in_default>
+                       		<show_in_website>1</show_in_website>
+                       		<show_in_store>1</show_in_store>
+                       	</errortemplate>
+                       	<time>
+                       		<frontend_type>hidden</frontend_type>
+                       		<sort_order>40</sort_order>
+                       		<show_in_default>0</show_in_default>
+                       		<show_in_website>0</show_in_website>
+                       		<show_in_store>0</show_in_store>
+                       	</time>
+                       	<check>
+                       		<frontend_type>hidden</frontend_type>
+                       		<sort_order>50</sort_order>
+                       		<show_in_default>0</show_in_default>
+                       		<show_in_website>0</show_in_website>
+                       		<show_in_store>0</show_in_store>
+                       	</check>
+                       	<version>
+                       		<frontend_type>hidden</frontend_type>
+                       		<sort_order>60</sort_order>
+                       		<show_in_default>0</show_in_default>
+                       		<show_in_website>0</show_in_website>
+                       		<show_in_store>0</show_in_store>
+                       	</version>
+                    </fields>
+				</main>
+				<configuration>
+					<label>Tor Blocker - Access Configuration</label>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<options translate="label">
+                       		<label>Requests to allow to the Tor users</label>
+                       		<frontend_model>hqpeaktorblocker/adminhtml_system_config_checkbox</frontend_model>
+                       		<source_model>hqpeaktorblocker/source</source_model>
+                       		<sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                       	</options>
+                       	<request translate="label comment">
+                       		<label>Requests to deny to the Tor users</label>
+                       		<comment>Here go all the parameters that are not allowed in the URL, such as POST or GET requests, Modules, Controllers or Actions (enter them one by one, separated by comma)</comment>
+                       		<frontend_type>textarea</frontend_type>
+                       		<sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                       	</request>
+                    </fields>
+				</configuration>
+			</groups>
+		</settings>
+	</sections>
+</config>

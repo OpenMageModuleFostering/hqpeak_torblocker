@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Hqpeak_TorBlocker>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Hqpeak_TorBlocker>
+	</modules>
+</config>
